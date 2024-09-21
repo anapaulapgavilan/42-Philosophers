@@ -6,7 +6,7 @@
 /*   By: ana-pper <ana-pper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 13:18:31 by ana-pper          #+#    #+#             */
-/*   Updated: 2024/09/16 20:26:18 by ana-pper         ###   ########.fr       */
+/*   Updated: 2024/09/21 17:44:58 by ana-pper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	messages(char *str, t_philo *philo)
 
 	pthread_mutex_lock(&philo->general->write);
 	time = get_time() - philo->general->start_time;
+	pthread_mutex_lock(&philo->general->general_lock);
 	if (ft_strcmp(DIED, str) == 0 && philo->general->is_dead == 0)
 	{
 		printf("%i %d %s\n", time, philo->id, str);
@@ -38,21 +39,42 @@ void	messages(char *str, t_philo *philo)
 	{
 		printf("%i %d %s\n", time, philo->id, str);
 	}
+	pthread_mutex_unlock(&philo->general->general_lock);
 	pthread_mutex_unlock(&philo->general->write);
 }
 
 void	take_forks(t_philo *philo)
 {
-	pthread_mutex_lock(philo->right_fork);
-	messages(TAKE_FORKS, philo);
-	pthread_mutex_lock(philo->left_fork);
-	messages(TAKE_FORKS, philo);
+	if (philo->id % 2 == 1)
+	{
+		usleep(100);
+		pthread_mutex_lock(philo->right_fork);
+		messages(TAKE_FORKS, philo);
+		usleep(100);
+		pthread_mutex_lock(philo->left_fork);
+		messages(TAKE_FORKS, philo);
+	}
+	else
+	{
+		pthread_mutex_lock(philo->left_fork);
+		messages(TAKE_FORKS, philo);
+		pthread_mutex_lock(philo->right_fork);
+		messages(TAKE_FORKS, philo);
+	}
 }
 
 void	drop_forks(t_philo *philo)
 {
-	pthread_mutex_unlock(philo->left_fork);
-	pthread_mutex_unlock(philo->right_fork);
+		if (philo->id % 2 == 1)
+	{
+		pthread_mutex_unlock(philo->left_fork);
+		pthread_mutex_unlock(philo->right_fork);
+	}
+	else
+	{
+		pthread_mutex_unlock(philo->right_fork);
+		pthread_mutex_unlock(philo->left_fork);
+	}
 }
 
 void	eat(t_philo *philo)

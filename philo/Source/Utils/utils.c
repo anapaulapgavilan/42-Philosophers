@@ -6,7 +6,7 @@
 /*   By: ana-pper <ana-pper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 13:21:59 by ana-pper          #+#    #+#             */
-/*   Updated: 2024/09/16 13:54:02 by ana-pper         ###   ########.fr       */
+/*   Updated: 2024/09/21 17:29:25 by ana-pper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	ft_usleep(int time)
 	start = get_time();
 	while ((get_time() - start) < time)
 	{
-		usleep(100);
+		usleep(10);
 	}
 	return (0);
 }

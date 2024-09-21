@@ -6,7 +6,7 @@
 /*   By: ana-pper <ana-pper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 13:21:29 by ana-pper          #+#    #+#             */
-/*   Updated: 2024/09/16 20:26:20 by ana-pper         ###   ########.fr       */
+/*   Updated: 2024/09/21 17:48:21 by ana-pper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,22 @@ void	*supervisor(void *philo_pointer)
 	t_philo	*philo;
 
 	philo = (t_philo *) philo_pointer;
-	while (philo->general->is_dead == 0)
+	while (1)
 	{
+		pthread_mutex_lock(&philo->general->general_lock);
+		if (philo->general->is_dead == 1)
+        {
+            pthread_mutex_unlock(&philo->general->general_lock);
+            break;
+        }
+		pthread_mutex_unlock(&philo->general->general_lock);
 		pthread_mutex_lock(&philo->philo_lock);
-		if ((get_time() >= philo->philo_time_to_die)
-			&& philo->is_eating == 0)
-		{
-			messages(DIED, philo);
-			philo->general->is_dead = 1;
-		}
-		pthread_mutex_unlock(&philo->philo_lock);
-		usleep(100);
+        if ((get_time() >= philo->philo_time_to_die) && philo->is_eating == 0)
+        {
+            messages(DIED, philo);
+        }
+        pthread_mutex_unlock(&philo->philo_lock);
+        usleep(100);
 	}
 	return ((void *)0);
 }
