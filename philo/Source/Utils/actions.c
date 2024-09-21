@@ -6,7 +6,7 @@
 /*   By: ana-pper <ana-pper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 13:18:31 by ana-pper          #+#    #+#             */
-/*   Updated: 2024/09/21 17:44:58 by ana-pper         ###   ########.fr       */
+/*   Updated: 2024/09/21 18:09:12 by ana-pper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	take_forks(t_philo *philo)
 
 void	drop_forks(t_philo *philo)
 {
-		if (philo->id % 2 == 1)
+	if (philo->id % 2 == 1)
 	{
 		pthread_mutex_unlock(philo->left_fork);
 		pthread_mutex_unlock(philo->right_fork);
