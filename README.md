@@ -1,14 +1,14 @@
 ﻿# Philosophers
 
-Concurrency project using threads and synchronization primitives in C.
+Proyecto de concurrencia basado en hilos y sincronizacion en C.
 
 ## Stack
 
 - School: 42
-- Primary language: C/C++
-- Scope: single repository per project
+- Lenguaje principal: C + pthreads
+- Alcance: un repositorio por proyecto
 
-## How To Run
+## Como Ejecutarlo
 
 ~~~bash
 cd philo
@@ -16,15 +16,17 @@ make
 ./philo 4 410 200 200
 ~~~
 
-## Testing
+Formato: ./philo numero_filosofos tiempo_morir tiempo_comer tiempo_dormir [veces_a_comer]
 
-No dedicated test script detected in the repository root.
+## Pruebas
 
-## Notes
+No se detectaron scripts de testing dedicados en la raiz.
 
-- This repository is maintained as part of a 42 portfolio.
-- Build commands are intentionally simple to keep evaluation reproducible.
+## Notas
 
-## Author
+- Este repositorio forma parte del portfolio de 42.
+- Los comandos estan orientados a ejecucion local para revision y evaluacion.
+
+## Autora
 
 anapaulapgavilan
