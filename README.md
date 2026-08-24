@@ -1,5 +1,7 @@
 ﻿# Philosophers
 
+![42](https://img.shields.io/badge/42-School-000000?style=flat-square&logo=42&logoColor=white) ![Language](https://img.shields.io/badge/lang-C%20%2B%20pthreads-blue?style=flat-square) ![Status](https://img.shields.io/badge/status-completed-success?style=flat-square)
+
 Proyecto de concurrencia basado en hilos y sincronizacion en C.
 
 ## Stack
