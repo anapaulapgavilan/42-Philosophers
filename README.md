@@ -2,15 +2,15 @@
 
 ![42](https://img.shields.io/badge/42-School-000000?style=flat-square&logo=42&logoColor=white) ![Language](https://img.shields.io/badge/lang-C%20%2B%20pthreads-blue?style=flat-square) ![Status](https://img.shields.io/badge/status-completed-success?style=flat-square)
 
-Proyecto de concurrencia basado en hilos y sincronizacion en C.
+Concurrency project based on threads and synchronization in C.
 
 ## Stack
 
 - School: 42
-- Lenguaje principal: C + pthreads
-- Alcance: un repositorio por proyecto
+- Primary language: C + pthreads
+- Scope: one repository per project
 
-## Como Ejecutarlo
+## How to Run
 
 ~~~bash
 cd philo
@@ -18,17 +18,17 @@ make
 ./philo 4 410 200 200
 ~~~
 
-Formato: ./philo numero_filosofos tiempo_morir tiempo_comer tiempo_dormir [veces_a_comer]
+Format: ./philo number_of_philosophers time_to_die time_to_eat time_to_sleep [meals_count]
 
-## Pruebas
+## Testing
 
-No se detectaron scripts de testing dedicados en la raiz.
+No dedicated testing scripts were detected at the project root.
 
-## Notas
+## Notes
 
-- Este repositorio forma parte del portfolio de 42.
-- Los comandos estan orientados a ejecucion local para revision y evaluacion.
+- This repository is part of the 42 portfolio.
+- Commands are intended for local execution for review and evaluation.
 
-## Autora
+## Author
 
 anapaulapgavilan
