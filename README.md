@@ -4,6 +4,18 @@
 
 Concurrency project based on threads and synchronization in C.
 
+## About This Project
+
+### What It Does
+
+Philosophers simulates the classic dining philosophers problem: a configurable number of philosophers sit at a round table, alternating between thinking, eating (which requires picking up the two forks/mutexes next to them), and sleeping, for as long as the simulation parameters allow.
+
+A supervising loop continuously checks whether any philosopher has gone too long without eating (which would mean they starved) or whether all philosophers have eaten enough times, and stops the simulation as soon as either condition is met, printing a timestamped log of every philosopher's state changes along the way.
+
+### Purpose
+
+It evaluates multithreading and synchronization in C: creating and coordinating threads, protecting shared resources (the forks) with mutexes to avoid data races, and preventing deadlock/starvation in a classic concurrency problem, all while keeping timing precise enough to detect starvation correctly.
+
 ## Stack
 
 - School: 42
@@ -11,6 +23,8 @@ Concurrency project based on threads and synchronization in C.
 - Scope: one repository per project
 
 ## How to Run
+
+Prerequisites: `make`, a C compiler, and POSIX threads (`pthread`, available by default on Linux/macOS).
 
 ~~~bash
 cd philo
