@@ -32,6 +32,12 @@ It evaluates multithreading and synchronization in C: creating and coordinating 
 - Fork access protected by mutexes to avoid data races
 - Starvation/deadlock avoidance with precise, timestamped state logging
 
+## Review Focus
+
+- Look for synchronized access to shared forks and shared simulation state.
+- Review starvation detection timing and whether logging remains consistent under concurrency.
+- Notice how deadlock avoidance is designed instead of patched after the fact.
+
 ## How to Run
 
 Prerequisites: `make`, a C compiler, and POSIX threads (`pthread`, available by default on Linux/macOS).
