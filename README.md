@@ -22,6 +22,16 @@ It evaluates multithreading and synchronization in C: creating and coordinating 
 - Primary language: C + pthreads
 - Scope: one repository per project
 
+## Skills Demonstrated
+
+`Multithreading` | `Mutex synchronization` | `Deadlock/starvation avoidance` | `Precise timing`
+
+## Features
+
+- Configurable dining-philosophers simulation with per-philosopher threads
+- Fork access protected by mutexes to avoid data races
+- Starvation/deadlock avoidance with precise, timestamped state logging
+
 ## How to Run
 
 Prerequisites: `make`, a C compiler, and POSIX threads (`pthread`, available by default on Linux/macOS).
