@@ -38,6 +38,18 @@ It evaluates multithreading and synchronization in C: creating and coordinating 
 - Review starvation detection timing and whether logging remains consistent under concurrency.
 - Notice how deadlock avoidance is designed instead of patched after the fact.
 
+## Project Deep Dive
+
+Philosophers is a concurrency project where correctness depends on timing and synchronization. Each philosopher acts independently, but shared forks and shared simulation state require careful locking to avoid races, deadlocks, and inconsistent logs.
+
+The project is small enough to inspect but hard enough to reveal real concurrency thinking. A reviewer can evaluate whether starvation detection is reliable, whether locks are held for the minimum necessary time, and whether the simulation exits cleanly.
+
+## Implementation Notes
+
+- Represents philosophers as concurrent workers coordinated by shared timing rules.
+- Protects shared fork access and simulation state with mutexes.
+- Uses timestamped logging and monitor logic to stop on death or completion conditions.
+
 ## How to Run
 
 Prerequisites: `make`, a C compiler, and POSIX threads (`pthread`, available by default on Linux/macOS).
